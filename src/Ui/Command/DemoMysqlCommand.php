@@ -50,7 +50,7 @@ class DemoMysqlCommand extends Command
 
         $output->writeln("\n==============================================================================\n");
 
-        $output->writeln("USE CASE 2: Fetch all students in 2019 in THIRD class\n");
+        $output->writeln("USE CASE 2: Fetch all students registered in 2019 in THIRD class\n");
         $students = $secondUseCase->handle(
             new StudentsBetweenDatesAndSchoolClassRequest('2019-01-01', '2019-12-31', 'third'),
             new QueryBuilderStudentFilter()
@@ -70,8 +70,8 @@ class DemoMysqlCommand extends Command
         $table = new Table($output);
         $table->setHeaders(['Name', 'Class', 'Registered in']);
         $table->setRows(array_map(static function (StudentDTO $student) {
-                return [$student->name(), $student->class(), $student->registeredIn()->format('Y-m-d H:i:s')];
-            }, $students))
+            return [$student->name(), $student->class(), $student->registeredIn()->format('Y-m-d H:i:s')];
+        }, $students))
         ;
 
         $table->render();
