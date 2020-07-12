@@ -34,6 +34,6 @@ class StudentsBetweenDatesAndSchoolClassHandler
 
         return array_map(static function (Student $student) {
             return StudentDTO::from($student);
-        }, $students);
+        }, iterator_to_array($students));
     }
 }

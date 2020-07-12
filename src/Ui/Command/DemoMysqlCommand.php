@@ -68,9 +68,8 @@ class DemoMysqlCommand extends Command
     public function outputStudents(array $students, OutputInterface $output): void
     {
         $table = new Table($output);
-        $table
-            ->setHeaders(['Name', 'Class', 'Registered in'])
-            ->setRows(array_map(static function (StudentDTO $student) {
+        $table->setHeaders(['Name', 'Class', 'Registered in']);
+        $table->setRows(array_map(static function (StudentDTO $student) {
                 return [$student->name(), $student->class(), $student->registeredIn()->format('Y-m-d H:i:s')];
             }, $students))
         ;

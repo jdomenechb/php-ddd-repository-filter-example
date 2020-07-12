@@ -16,5 +16,5 @@ interface StudentRepository
      */
     public function byIdOrFail(StudentId $id): Student;
 
-    public function by(StudentFilter $filter): array;
+    public function by(StudentFilter $filter): \Generator;
 }

@@ -10,6 +10,11 @@ use RepositoryFilterExample\Domain\ValueObject\StudentId;
 
 class StudentHydrator
 {
+    /**
+     * @param array<string, string> $data
+     * @return Student
+     * @throws \Exception
+     */
     public function fromArray(array $data): Student
     {
         return new Student(

@@ -35,6 +35,7 @@ class DbalStudentRepository implements StudentRepository
             throw new \RuntimeException('Expected result object');
         }
 
+        /** @var array<string, string>|null $row */
         $row = $result->fetch();
 
         if ($row === null) {
@@ -44,7 +45,10 @@ class DbalStudentRepository implements StudentRepository
         return $this->hydrator->fromArray($row);
     }
 
-    public function by(StudentFilter $filter): array
+    /**
+     * @throws \Exception
+     */
+    public function by(StudentFilter $filter): \Generator
     {
         $qb = $this->createSelect();
         $filter->apply($qb);
@@ -55,13 +59,12 @@ class DbalStudentRepository implements StudentRepository
             throw new \RuntimeException('Expected result object');
         }
 
-        $toReturn = [];
-
-        while ($row = $result->fetch()) {
-            $toReturn[] = $this->hydrator->fromArray($row);
+        while (
+            /** @var array<string, string>|null $row */
+            $row = $result->fetch()
+        ) {
+            yield $this->hydrator->fromArray($row);
         }
-
-        return $toReturn;
     }
 
     private function createSelect(): QueryBuilder
