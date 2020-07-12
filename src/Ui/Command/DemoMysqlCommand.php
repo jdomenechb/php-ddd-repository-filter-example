@@ -26,14 +26,18 @@ class DemoMysqlCommand extends Command
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
+        // Hardcoded configuration only for demo purposes. Remember kids, never hardcode any config in your files!
         $connectionParams = ['url' => 'mysql://root:root@127.0.0.1:3306/demo'];
 
+        // As it is a little demo, we don't need anything powerful like a service container. We will handle dependencies
+        // ourselves
         $conn = DriverManager::getConnection($connectionParams);
         $repository = new DbalStudentRepository($conn, new StudentHydrator());
 
         $firstUseCase = new StudentByIdHandler($repository);
         $secondUseCase = new StudentsBetweenDatesAndSchoolClassHandler($repository);
 
+        // :Rick voice: And away we go!
         $output->writeln("MySQL Demo");
         $output->writeln("==========\n");
 
