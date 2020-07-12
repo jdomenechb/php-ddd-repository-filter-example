@@ -1,4 +1,4 @@
-# DDD Repository Filter example
+# PHP DDD Repository Filter example
 
 The purpose of this project is to illustrate how to create a way to filter items in a repository directly in the Domain 
 Driven Design Infrastructure layer, defining the rules to filter for in higher layers. 
