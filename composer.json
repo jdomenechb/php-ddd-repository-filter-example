@@ -1,0 +1,29 @@
+{
+  "name": "jdomenechb/repository-filter-example",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Jordi Domènech Bonilla",
+      "email": "jdomenechbborges@gmail.com"
+    }
+  ],
+
+  "require": {
+    "php": ">=7.4",
+    "symfony/console": "^5.1.2",
+    "spatie/enum": "^2.3",
+    "doctrine/dbal": "^2.10",
+    "ext-pdo": "*"
+  },
+
+  "require-dev": {
+    "roave/security-advisories": "dev-master"
+  },
+
+  "autoload": {
+    "psr-4": {
+      "RepositoryFilterExample\\": "src/"
+    }
+  }
+}
