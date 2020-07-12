@@ -10,9 +10,17 @@ use RepositoryFilterExample\Domain\ValueObject\SchoolClass;
 
 class QueryBuilderStudentFilter implements StudentFilter
 {
-    private SchoolClass $inSchoolClass;
-    private \DateTimeImmutable $registeredBeforeInclusive;
-    private \DateTimeImmutable $registeredAfterInclusive;
+    private ?SchoolClass $inSchoolClass;
+    private ?\DateTimeImmutable $registeredBeforeInclusive;
+    private ?\DateTimeImmutable $registeredAfterInclusive;
+
+    public function __construct()
+    {
+        $this->inSchoolClass = null;
+        $this->registeredBeforeInclusive = null;
+        $this->registeredAfterInclusive = null;
+    }
+
 
     public function inSchoolClass(SchoolClass $schoolClass): self
     {
@@ -35,11 +43,12 @@ class QueryBuilderStudentFilter implements StudentFilter
         return $this;
     }
 
-    /**
-     * @param QueryBuilder $qb
-     */
     public function apply($qb): void
     {
+        if (!$qb instanceof QueryBuilder) {
+            throw new \RuntimeException('Expected query builder');
+        }
+
         if ($this->inSchoolClass !== null) {
             $qb->andWhere('school_class = :schoolClass')
                 ->setParameter('schoolClass', $this->inSchoolClass->getValue());

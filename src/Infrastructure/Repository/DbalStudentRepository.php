@@ -30,6 +30,11 @@ class DbalStudentRepository implements StudentRepository
             ->andWhere('id = :id') ->setParameter('id', $id->id());
 
         $result = $qb->execute();
+
+        if (!is_object($result)) {
+            throw new \RuntimeException('Expected result object');
+        }
+
         $row = $result->fetch();
 
         if ($row === null) {
@@ -45,6 +50,10 @@ class DbalStudentRepository implements StudentRepository
         $filter->apply($qb);
 
         $result = $qb->execute();
+
+        if (!is_object($result)) {
+            throw new \RuntimeException('Expected result object');
+        }
 
         $toReturn = [];
 

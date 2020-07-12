@@ -10,7 +10,7 @@ use RepositoryFilterExample\Domain\ValueObject\StudentId;
 
 class StudentHydrator
 {
-    public function fromArray($data): Student
+    public function fromArray(array $data): Student
     {
         return new Student(
             new StudentId($data['id']),
