@@ -1,5 +1,6 @@
 {
-  "name": "jdomenechb/repository-filter-example",
+  "name": "jdomenechb/ddd-repository-filter-example",
+
   "type": "project",
   "license": "MIT",
   "authors": [
