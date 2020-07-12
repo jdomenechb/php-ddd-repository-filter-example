@@ -2,11 +2,11 @@
 
 declare(strict_types=1);
 
-namespace RepositoryFilterExample\Domain\Filter;
+namespace RepositoryFilterExample\Domain\Repository\Filter;
 
 use RepositoryFilterExample\Domain\ValueObject\SchoolClass;
 
-interface StudentFilter extends Filter
+interface StudentRepositoryFilter extends RepositoryFilter
 {
     public function inSchoolClass(SchoolClass $schoolClass): self;
     public function registeredBeforeInclusive(\DateTimeImmutable $date): self;

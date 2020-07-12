@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace RepositoryFilterExample\Infrastructure\Filter;
 
 use Doctrine\DBAL\Query\QueryBuilder;
-use RepositoryFilterExample\Domain\Filter\StudentFilter;
+use RepositoryFilterExample\Domain\Repository\Filter\StudentRepositoryFilter;
 use RepositoryFilterExample\Domain\ValueObject\SchoolClass;
 
-class QueryBuilderStudentFilter implements StudentFilter
+class QueryBuilderStudentFilter implements StudentRepositoryFilter
 {
     private ?SchoolClass $inSchoolClass;
     private ?\DateTimeImmutable $registeredBeforeInclusive;

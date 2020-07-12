@@ -8,7 +8,7 @@ use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\Query\QueryBuilder;
 use RepositoryFilterExample\Domain\Entity\Student;
 use RepositoryFilterExample\Domain\Exception\StudentDoesNotExistException;
-use RepositoryFilterExample\Domain\Filter\StudentFilter;
+use RepositoryFilterExample\Domain\Repository\Filter\StudentRepositoryFilter;
 use RepositoryFilterExample\Domain\Repository\StudentRepository;
 use RepositoryFilterExample\Domain\ValueObject\StudentId;
 use RepositoryFilterExample\Infrastructure\Hydrator\StudentHydrator;
@@ -48,7 +48,7 @@ class DbalStudentRepository implements StudentRepository
     /**
      * @throws \Exception
      */
-    public function by(StudentFilter $filter): \Generator
+    public function by(StudentRepositoryFilter $filter): \Generator
     {
         $qb = $this->createSelect();
         $filter->apply($qb);

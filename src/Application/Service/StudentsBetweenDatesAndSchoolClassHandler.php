@@ -6,7 +6,7 @@ namespace RepositoryFilterExample\Application\Service;
 
 use RepositoryFilterExample\Application\DTO\StudentDTO;
 use RepositoryFilterExample\Domain\Entity\Student;
-use RepositoryFilterExample\Domain\Filter\StudentFilter;
+use RepositoryFilterExample\Domain\Repository\Filter\StudentRepositoryFilter;
 use RepositoryFilterExample\Domain\Repository\StudentRepository;
 use RepositoryFilterExample\Domain\ValueObject\SchoolClass;
 
@@ -23,7 +23,7 @@ class StudentsBetweenDatesAndSchoolClassHandler
      * @return StudentDTO[]
      * @throws \Exception
      */
-    public function handle(StudentsBetweenDatesAndSchoolClassRequest $request, StudentFilter $filter): array
+    public function handle(StudentsBetweenDatesAndSchoolClassRequest $request, StudentRepositoryFilter $filter): array
     {
         $students = $this->studentRepository->by(
             $filter
