@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace RepositoryFilterExample\Domain\ValueObject;
 
 use Spatie\Enum\Enum;
@@ -11,5 +13,4 @@ use Spatie\Enum\Enum;
  */
 class SchoolClass extends Enum
 {
-
 }

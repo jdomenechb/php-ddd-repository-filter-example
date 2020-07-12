@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace RepositoryFilterExample\Application\DTO;
 
 use RepositoryFilterExample\Domain\Entity\Student;

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace RepositoryFilterExample\Infrastructure\Hydrator;
 
 use RepositoryFilterExample\Domain\Entity\Student;

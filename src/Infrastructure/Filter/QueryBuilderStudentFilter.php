@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace RepositoryFilterExample\Infrastructure\Filter;
 
 use Doctrine\DBAL\Query\QueryBuilder;
@@ -40,17 +42,17 @@ class QueryBuilderStudentFilter implements StudentFilter
     {
         if ($this->inSchoolClass !== null) {
             $qb->andWhere('school_class = :schoolClass')
-                ->setParameter('schoolClass',  $this->inSchoolClass->getValue());
+                ->setParameter('schoolClass', $this->inSchoolClass->getValue());
         }
 
         if ($this->registeredBeforeInclusive !== null) {
             $qb->andWhere('registered_in <= :registeredBefore')
-                ->setParameter('registeredBefore',  $this->registeredBeforeInclusive->format('Y-m-d H:i:s'));
+                ->setParameter('registeredBefore', $this->registeredBeforeInclusive->format('Y-m-d H:i:s'));
         }
 
         if ($this->registeredAfterInclusive !== null) {
             $qb->andWhere('registered_in >= :registeredAfter')
-                ->setParameter('registeredAfter',  $this->registeredAfterInclusive->format('Y-m-d H:i:s'));
+                ->setParameter('registeredAfter', $this->registeredAfterInclusive->format('Y-m-d H:i:s'));
         }
     }
 }

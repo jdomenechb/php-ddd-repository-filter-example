@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace RepositoryFilterExample\Domain\Entity;
 
 use RepositoryFilterExample\Domain\ValueObject\SchoolClass;
@@ -7,7 +9,7 @@ use RepositoryFilterExample\Domain\ValueObject\StudentId;
 
 class Student
 {
-    private string $id;
+    private StudentId $id;
     private string $name;
     private SchoolClass $schoolClass;
     private \DateTimeImmutable $registeredIn;
@@ -20,7 +22,7 @@ class Student
         $this->registeredIn = $registeredIn;
     }
 
-    public function id(): string
+    public function id(): StudentId
     {
         return $this->id;
     }

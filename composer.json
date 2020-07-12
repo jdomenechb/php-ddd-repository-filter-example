@@ -11,14 +11,14 @@
 
   "require": {
     "php": ">=7.4",
-    "symfony/console": "^5.1.2",
+    "symfony/console": "^5.1",
     "spatie/enum": "^2.3",
-    "doctrine/dbal": "^2.10",
-    "ext-pdo": "*"
+    "doctrine/dbal": "^2.10"
   },
 
   "require-dev": {
-    "roave/security-advisories": "dev-master"
+    "roave/security-advisories": "dev-master",
+    "symplify/easy-coding-standard": "^8.1"
   },
 
   "autoload": {
