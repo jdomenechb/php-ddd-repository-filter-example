@@ -1,8 +1,9 @@
 <?php
 
+declare(strict_types=1);
+
 namespace RepositoryFilterExample\Ui\Command;
 
-use Doctrine\DBAL\DriverManager;
 use RepositoryFilterExample\Application\DTO\StudentDTO;
 use RepositoryFilterExample\Application\Service\StudentByIdHandler;
 use RepositoryFilterExample\Application\Service\StudentByIdRequest;

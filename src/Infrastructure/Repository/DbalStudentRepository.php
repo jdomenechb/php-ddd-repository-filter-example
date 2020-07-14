@@ -12,7 +12,6 @@ use RepositoryFilterExample\Domain\Repository\Filter\StudentRepositoryFilter;
 use RepositoryFilterExample\Domain\Repository\StudentRepository;
 use RepositoryFilterExample\Domain\ValueObject\SchoolClass;
 use RepositoryFilterExample\Domain\ValueObject\StudentId;
-use RepositoryFilterExample\Infrastructure\Hydrator\StudentHydrator;
 
 class DbalStudentRepository implements StudentRepository
 {
@@ -73,7 +72,7 @@ class DbalStudentRepository implements StudentRepository
             ->from('students');
     }
 
-    private function buildObject(array $data)
+    private function buildObject(array $data): Student
     {
         return new Student(
             new StudentId($data['id']),

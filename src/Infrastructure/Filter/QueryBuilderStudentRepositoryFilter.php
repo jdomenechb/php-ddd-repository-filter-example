@@ -5,12 +5,9 @@ declare(strict_types=1);
 namespace RepositoryFilterExample\Infrastructure\Filter;
 
 use Doctrine\DBAL\Query\QueryBuilder;
-use RepositoryFilterExample\Domain\Repository\Filter\StudentRepositoryFilter;
-use RepositoryFilterExample\Domain\ValueObject\SchoolClass;
 
 class QueryBuilderStudentRepositoryFilter extends AbstractStudentRepositoryFilter
 {
-
     public function apply($qb): void
     {
         if (!$qb instanceof QueryBuilder) {

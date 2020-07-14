@@ -5,16 +5,8 @@ declare(strict_types=1);
 namespace RepositoryFilterExample\Ui\Command;
 
 use Doctrine\DBAL\DriverManager;
-use RepositoryFilterExample\Application\DTO\StudentDTO;
-use RepositoryFilterExample\Application\Service\StudentByIdHandler;
-use RepositoryFilterExample\Application\Service\StudentByIdRequest;
-use RepositoryFilterExample\Application\Service\StudentsBetweenDatesAndSchoolClassHandler;
-use RepositoryFilterExample\Application\Service\StudentsBetweenDatesAndSchoolClassRequest;
 use RepositoryFilterExample\Infrastructure\Filter\QueryBuilderStudentRepositoryFilter;
-use RepositoryFilterExample\Infrastructure\Hydrator\StudentHydrator;
 use RepositoryFilterExample\Infrastructure\Repository\DbalStudentRepository;
-use Symfony\Component\Console\Command\Command;
-use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
 

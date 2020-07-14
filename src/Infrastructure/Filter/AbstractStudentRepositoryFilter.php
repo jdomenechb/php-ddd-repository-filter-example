@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace RepositoryFilterExample\Infrastructure\Filter;
 
 use RepositoryFilterExample\Domain\Repository\Filter\StudentRepositoryFilter;

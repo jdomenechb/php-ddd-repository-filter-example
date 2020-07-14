@@ -13,18 +13,15 @@ use RepositoryFilterExample\Domain\Repository\Filter\StudentRepositoryFilter;
 use RepositoryFilterExample\Domain\Repository\StudentRepository;
 use RepositoryFilterExample\Domain\ValueObject\SchoolClass;
 use RepositoryFilterExample\Domain\ValueObject\StudentId;
-use RepositoryFilterExample\Infrastructure\Hydrator\StudentHydrator;
 
 class MongoStudentRepository implements StudentRepository
 {
     private Collection $collection;
-    private StudentHydrator $hydrator;
 
     public function __construct(Database $client)
     {
         $this->collection = $client
             ->selectCollection('students');
-
     }
 
     /**
