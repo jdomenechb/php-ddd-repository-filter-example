@@ -8,40 +8,8 @@ use Doctrine\DBAL\Query\QueryBuilder;
 use RepositoryFilterExample\Domain\Repository\Filter\StudentRepositoryFilter;
 use RepositoryFilterExample\Domain\ValueObject\SchoolClass;
 
-class QueryBuilderStudentFilter implements StudentRepositoryFilter
+class QueryBuilderStudentRepositoryFilter extends AbstractStudentRepositoryFilter
 {
-    private ?SchoolClass $inSchoolClass;
-    private ?\DateTimeImmutable $registeredBeforeInclusive;
-    private ?\DateTimeImmutable $registeredAfterInclusive;
-
-    public function __construct()
-    {
-        $this->inSchoolClass = null;
-        $this->registeredBeforeInclusive = null;
-        $this->registeredAfterInclusive = null;
-    }
-
-
-    public function inSchoolClass(SchoolClass $schoolClass): self
-    {
-        $this->inSchoolClass = $schoolClass;
-
-        return $this;
-    }
-
-    public function registeredBeforeInclusive(\DateTimeImmutable $date): self
-    {
-        $this->registeredBeforeInclusive = $date;
-
-        return $this;
-    }
-
-    public function registeredAfterInclusive(\DateTimeImmutable $date): self
-    {
-        $this->registeredAfterInclusive = $date;
-
-        return $this;
-    }
 
     public function apply($qb): void
     {

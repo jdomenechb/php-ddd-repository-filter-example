@@ -10,18 +10,17 @@ use RepositoryFilterExample\Domain\Entity\Student;
 use RepositoryFilterExample\Domain\Exception\StudentDoesNotExistException;
 use RepositoryFilterExample\Domain\Repository\Filter\StudentRepositoryFilter;
 use RepositoryFilterExample\Domain\Repository\StudentRepository;
+use RepositoryFilterExample\Domain\ValueObject\SchoolClass;
 use RepositoryFilterExample\Domain\ValueObject\StudentId;
 use RepositoryFilterExample\Infrastructure\Hydrator\StudentHydrator;
 
 class DbalStudentRepository implements StudentRepository
 {
     private Connection $connection;
-    private StudentHydrator $hydrator;
 
-    public function __construct(Connection $connection, StudentHydrator $hydrator)
+    public function __construct(Connection $connection)
     {
         $this->connection = $connection;
-        $this->hydrator = $hydrator;
     }
 
     public function byIdOrFail(StudentId $id): Student
@@ -42,7 +41,7 @@ class DbalStudentRepository implements StudentRepository
             throw new StudentDoesNotExistException();
         }
 
-        return $this->hydrator->fromArray($row);
+        return $this->buildObject($row);
     }
 
     /**
@@ -63,7 +62,7 @@ class DbalStudentRepository implements StudentRepository
             /** @var array<string, string>|null $row */
             $row = $result->fetch()
         ) {
-            yield $this->hydrator->fromArray($row);
+            yield $this->buildObject($row);
         }
     }
 
@@ -72,5 +71,15 @@ class DbalStudentRepository implements StudentRepository
         return (new QueryBuilder($this->connection))
             ->select('*')
             ->from('students');
+    }
+
+    private function buildObject(array $data)
+    {
+        return new Student(
+            new StudentId($data['id']),
+            $data['name'],
+            SchoolClass::make($data['school_class']),
+            new \DateTimeImmutable($data['registered_in'], new \DateTimeZone('UTC'))
+        );
     }
 }

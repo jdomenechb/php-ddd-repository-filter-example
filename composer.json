@@ -12,9 +12,11 @@
 
   "require": {
     "php": ">=7.4",
+    "ext-mongodb": "*",
     "symfony/console": "^5.1",
     "spatie/enum": "^2.3",
-    "doctrine/dbal": "^2.10"
+    "doctrine/dbal": "^2.10",
+    "mongodb/mongodb": "^1.6"
   },
 
   "require-dev": {

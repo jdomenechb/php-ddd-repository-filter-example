@@ -17,6 +17,16 @@ class StudentHydrator
      */
     public function fromArray(array $data): Student
     {
+
+    }
+
+    /**
+     * @param array<string, string> $data
+     * @return Student
+     * @throws \Exception
+     */
+    public function fromObject(object $data): Student
+    {
         return new Student(
             new StudentId($data['id']),
             $data['name'],

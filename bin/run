@@ -1,6 +1,7 @@
 #!/usr/bin/php
 <?php
 
+use RepositoryFilterExample\Ui\Command\DemoMongoCommand;
 use RepositoryFilterExample\Ui\Command\DemoMysqlCommand;
 use Symfony\Component\Console\Application;
 
@@ -9,5 +10,6 @@ require dirname(__DIR__) . '/vendor/autoload.php';
 $application = new Application();
 
 $application->add(new DemoMysqlCommand());
+$application->add(new DemoMongoCommand());
 
 $application->run();
