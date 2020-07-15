@@ -7,8 +7,7 @@ namespace RepositoryFilterExample\Domain\Repository\Filter;
 interface RepositoryFilter
 {
     /**
-     * @param mixed $applier
      * @return mixed
      */
-    public function apply($applier);
+    public function apply(object $applier);
 }
