@@ -11,7 +11,7 @@ use RepositoryFilterExample\Domain\Exception\StudentDoesNotExistException;
 use RepositoryFilterExample\Domain\Repository\Filter\StudentRepositoryFilter;
 use RepositoryFilterExample\Domain\Repository\StudentRepository;
 use RepositoryFilterExample\Domain\ValueObject\StudentId;
-use RepositoryFilterExample\Infrastructure\Entity\MongoStudent;
+use RepositoryFilterExample\Infrastructure\Entity\MongoSurrogateStudent;
 
 class MongoStudentRepository implements StudentRepository
 {
@@ -28,8 +28,8 @@ class MongoStudentRepository implements StudentRepository
      */
     public function byIdOrFail(StudentId $id): Student
     {
-        /** @var MongoStudent|null $document */
-        $document = $this->collection->findOne(['id' => $id->id()], ['typeMap' => ['root' => MongoStudent::class]]);
+        /** @var MongoSurrogateStudent|null $document */
+        $document = $this->collection->findOne(['id' => $id->id()], ['typeMap' => ['root' => MongoSurrogateStudent::class]]);
 
         if (!$document) {
             throw new StudentDoesNotExistException();
@@ -47,9 +47,9 @@ class MongoStudentRepository implements StudentRepository
         $filter->apply($mongoFilters);
 
         $cursor = $this->collection->find($mongoFilters);
-        $cursor->setTypeMap(['root' => MongoStudent::class]);
+        $cursor->setTypeMap(['root' => MongoSurrogateStudent::class]);
 
-        /** @var MongoStudent[] $cursor */
+        /** @var MongoSurrogateStudent[] $cursor */
         foreach ($cursor as $document) {
             yield $document;
         }
