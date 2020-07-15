@@ -18,14 +18,22 @@ class StdClassMongoStudentRepositoryFilter extends AbstractStudentRepositoryFilt
             $applier->school_class = strtolower($this->inSchoolClass->getValue());
         }
 
+        $registeredIn = [];
+
         if ($this->registeredBeforeInclusive !== null) {
-            $applier->registered_in ??= new \stdClass();
-            $applier->registered_in->{'$lte'} = new UTCDateTime($this->registeredBeforeInclusive);
+            $registeredIn['$lte'] = new UTCDateTime($this->registeredBeforeInclusive);
         }
 
         if ($this->registeredAfterInclusive !== null) {
-            $applier->registered_in ??= new \stdClass();
-            $applier->registered_in->{'$gte'} = new UTCDateTime($this->registeredAfterInclusive);
+            $registeredIn['$gte'] = new UTCDateTime($this->registeredAfterInclusive);
+        }
+
+        if ($registeredIn) {
+            $applier->registered_in = new \stdClass();
+
+            foreach ($registeredIn as $key => $value) {
+                $applier->registered_in->{$key} = $value;
+            }
         }
     }
 }
