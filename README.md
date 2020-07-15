@@ -21,7 +21,7 @@ needs.
 
 ## Running the project
 
-The project contains a demonstration using a MySQL database. First, you will need to setup the demo infrastructure. 
+The project contains a demonstration using a MySQL and a MongoDB database. First, you will need to setup the demo infrastructure. 
 For this purpose, you can run the following command, which setups a database populated with a fixture of demo data using 
 [Docker](https://www.docker.com/):
 
@@ -38,5 +38,9 @@ composer i --no-dev
 After that, you can already execute the demo and have a look at the code!
 
 ```
+# Run MySQL demo
 bin/run app:demo:mysql
+
+# Run MongoDB demo
+bin/run app:demo:mongo
 ```
