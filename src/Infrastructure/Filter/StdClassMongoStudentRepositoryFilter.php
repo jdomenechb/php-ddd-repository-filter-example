@@ -8,7 +8,7 @@ use MongoDB\BSON\UTCDateTime;
 
 class StdClassMongoStudentRepositoryFilter extends AbstractStudentRepositoryFilter
 {
-    public function apply($applier): void
+    public function apply(object $applier): void
     {
         if (!$applier instanceof \stdClass) {
             throw new \RuntimeException('Expected stdClass');

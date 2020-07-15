@@ -8,7 +8,7 @@ use Doctrine\DBAL\Query\QueryBuilder;
 
 class QueryBuilderStudentRepositoryFilter extends AbstractStudentRepositoryFilter
 {
-    public function apply($qb): void
+    public function apply(object $qb): void
     {
         if (!$qb instanceof QueryBuilder) {
             throw new \RuntimeException('Expected query builder');

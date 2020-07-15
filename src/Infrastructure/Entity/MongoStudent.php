@@ -5,10 +5,10 @@ declare(strict_types=1);
 namespace RepositoryFilterExample\Infrastructure\Entity;
 
 use MongoDB\BSON\Unserializable;
+use MongoDB\BSON\UTCDateTime;
 use RepositoryFilterExample\Domain\Entity\Student;
 use RepositoryFilterExample\Domain\ValueObject\SchoolClass;
 use RepositoryFilterExample\Domain\ValueObject\StudentId;
-use MongoDB\BSON\UTCDateTime;
 
 class MongoStudent extends Student implements Unserializable
 {

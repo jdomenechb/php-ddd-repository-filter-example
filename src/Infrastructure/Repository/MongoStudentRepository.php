@@ -6,7 +6,6 @@ namespace RepositoryFilterExample\Infrastructure\Repository;
 
 use MongoDB\Collection;
 use MongoDB\Database;
-use MongoDB\Driver\Cursor;
 use RepositoryFilterExample\Domain\Entity\Student;
 use RepositoryFilterExample\Domain\Exception\StudentDoesNotExistException;
 use RepositoryFilterExample\Domain\Repository\Filter\StudentRepositoryFilter;
