@@ -9,10 +9,10 @@ use RepositoryFilterExample\Domain\ValueObject\StudentId;
 
 class Student
 {
-    private StudentId $id;
-    private string $name;
-    private SchoolClass $schoolClass;
-    private \DateTimeImmutable $registeredIn;
+    protected StudentId $id;
+    protected string $name;
+    protected SchoolClass $schoolClass;
+    protected \DateTimeImmutable $registeredIn;
 
     public function __construct(StudentId $id, string $name, SchoolClass $schoolClass, \DateTimeImmutable $registeredIn)
     {

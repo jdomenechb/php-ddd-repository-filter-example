@@ -6,13 +6,13 @@ namespace RepositoryFilterExample\Infrastructure\Repository;
 
 use MongoDB\Collection;
 use MongoDB\Database;
-use MongoDB\Model\BSONDocument;
+use MongoDB\Driver\Cursor;
 use RepositoryFilterExample\Domain\Entity\Student;
 use RepositoryFilterExample\Domain\Exception\StudentDoesNotExistException;
 use RepositoryFilterExample\Domain\Repository\Filter\StudentRepositoryFilter;
 use RepositoryFilterExample\Domain\Repository\StudentRepository;
-use RepositoryFilterExample\Domain\ValueObject\SchoolClass;
 use RepositoryFilterExample\Domain\ValueObject\StudentId;
+use RepositoryFilterExample\Infrastructure\Entity\MongoStudent;
 
 class MongoStudentRepository implements StudentRepository
 {
@@ -29,14 +29,14 @@ class MongoStudentRepository implements StudentRepository
      */
     public function byIdOrFail(StudentId $id): Student
     {
-        $document = $this->collection->findOne(['id' => $id->id()]);
+        /** @var MongoStudent|null $document */
+        $document = $this->collection->findOne(['id' => $id->id()], ['typeMap' => ['root' => MongoStudent::class]]);
 
         if (!$document) {
             throw new StudentDoesNotExistException();
         }
 
-        /** @var BSONDocument $document */
-        return $this->buildObject($document);
+        return $document;
     }
 
     /**
@@ -48,19 +48,11 @@ class MongoStudentRepository implements StudentRepository
         $filter->apply($mongoFilters);
 
         $cursor = $this->collection->find($mongoFilters);
+        $cursor->setTypeMap(['root' => MongoStudent::class]);
 
+        /** @var MongoStudent[] $cursor */
         foreach ($cursor as $document) {
-            yield $this->buildObject($document);
+            yield $document;
         }
-    }
-
-    private function buildObject(BSONDocument $data): Student
-    {
-        return new Student(
-            new StudentId($data['id']),
-            $data['name'],
-            SchoolClass::make($data['school_class']),
-            \DateTimeImmutable::createFromMutable($data['registered_in']->toDateTime())
-        );
     }
 }
