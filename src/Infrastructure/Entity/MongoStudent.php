@@ -8,9 +8,13 @@ use MongoDB\BSON\Unserializable;
 use RepositoryFilterExample\Domain\Entity\Student;
 use RepositoryFilterExample\Domain\ValueObject\SchoolClass;
 use RepositoryFilterExample\Domain\ValueObject\StudentId;
+use MongoDB\BSON\UTCDateTime;
 
 class MongoStudent extends Student implements Unserializable
 {
+    /**
+     * @param array{id: string, name: string, school_class: string, registered_in: UTCDateTime} $data
+     */
     public function bsonUnserialize(array $data): void
     {
         $this->id = new StudentId($data['id']);

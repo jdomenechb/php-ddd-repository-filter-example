@@ -72,6 +72,9 @@ class DbalStudentRepository implements StudentRepository
             ->from('students');
     }
 
+    /**
+     * @param array<string, string> $data
+     */
     private function buildObject(array $data): Student
     {
         return new Student(
