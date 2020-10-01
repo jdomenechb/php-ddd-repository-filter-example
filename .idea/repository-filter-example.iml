@@ -7,6 +7,8 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/amphp/amp" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/amphp/byte-stream" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dealerdirect/phpcodesniffer-composer-installer" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/dnoegel/php-xdg-base-dir" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/annotations" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/cache" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/doctrine/dbal" />
@@ -22,7 +24,6 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/nette/robot-loader" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nette/utils" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/nikic/php-parser" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/ocramius/package-versions" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/openlss/lib-array2xml" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/paragonie/random_compat" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/php-cs-fixer/diff" />
@@ -51,6 +52,7 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/event-dispatcher-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/filesystem" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/finder" />
+      <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/http-client-contracts" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/http-foundation" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/http-kernel" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/options-resolver" />
@@ -69,14 +71,11 @@
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/var-dumper" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/var-exporter" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symfony/yaml" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/symplify/auto-bind-parameter" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symplify/autowire-array-parameter" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symplify/coding-standard" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symplify/console-color-diff" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symplify/easy-coding-standard" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symplify/package-builder" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/symplify/parameter-name-guard" />
-      <excludeFolder url="file://$MODULE_DIR$/vendor/symplify/phpstan-extensions" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symplify/set-config-resolver" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/symplify/smart-file-system" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/vimeo/psalm" />
